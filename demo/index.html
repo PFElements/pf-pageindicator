@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>pixy-dot-nav demo</title>
+
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../pf-pageindicator.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+#pg{
+    --pf-pageindicator-bg-color:red;
+    --pf-dot-color:pink;
+    --pf-selecteddot-color:blue;
+    --pf-dot-border-color:black;
+    --pf-dot-hover-color:green
+}
+    </style>
+</head>
+<body>
+<div class="vertical-section-container centered">
+    <h3>Basic pixy-dot-nav demo</h3>
+    <demo-snippet>
+
+            <h2>Fill up</h2>
+            <pf-pageindicator
+                    dotstyle="dotstyle-fillup" totaldots="5">
+            </pf-pageindicator>
+        <h2>Scale up</h2>
+            <pf-pageindicator
+                    dotstyle="dotstyle-scaleup" totaldots="5">
+            </pf-pageindicator>
+        <h2>Stroke</h2>
+            <pf-pageindicator
+                    dotstyle="dotstyle-stroke" totaldots="5">
+            </pf-pageindicator>
+        <h2>Fill in</h2>
+            <pf-pageindicator
+                    dotstyle="dotstyle-fillin" totaldots="5">
+            </pf-pageindicator>
+        <h2>Circle Grow</h2>
+            <pf-pageindicator
+                   dotstyle="dotstyle-circlegrow" totaldots="5">
+            </pf-pageindicator>
+        <h2></h2>
+        <h2>Dot Stroke</h2>
+            <pf-pageindicator
+                    dotstyle="dotstyle-dotstroke" totaldots="5">
+            </pf-pageindicator>
+        <h2>Draw Circle</h2>
+            <pf-pageindicator
+                    dotstyle="dotstyle-drawcircle" totaldots="5">
+            </pf-pageindicator>
+        <h2>Small Dot With Stroke</h2>
+            <pf-pageindicator
+                    id="pg" dotstyle="dotstyle-smalldotstroke" totaldots="5">
+            </pf-pageindicator>
+        <h2>Fall In</h2>
+            <pf-pageindicator
+                    dotstyle="dotstyle-fall"  totaldots="5">
+            </pf-pageindicator>
+            <h2>Page indicator with data </h2>
+            <pf-pageindicator
+                    dotstyle="dotstyle-tooltip"
+                    indicatordata='[{"label":"Home"},{"label":"About"},{"label":"contact us"}]'
+
+            >
+
+            </pf-pageindicator>
+        </template>
+    </demo-snippet>
+</div>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,750 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-listbox/paper-listbox.html">
+
+<!--
+`pixy-dot-nav`
+
+
+@demo demo/index.html
+-->
+
+<dom-module id="pf-pageindicator">
+    <template>
+        <style>
+
+            *:focus {
+                outline: none;
+            }
+            .dotstyle paper-listbox {
+                background-color: var(--pf-pageindicator-bg-color, lightseagreen);
+                position: relative;
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                cursor: default;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            .dotstyle paper-item {
+                position: relative;
+                display: block;
+                float: left;
+                margin: 0 16px;
+                width: 16px;
+                height: 16px;
+                cursor: pointer;
+            }
+
+            .dotstyle paper-item span {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                outline: none;
+                border-radius: 50%;
+                background-color: var(--pf-dot-color, white);
+
+                text-indent: -999em; /* make the text accessible to screen readers */
+                cursor: pointer;
+                position: absolute;
+            }
+
+            .dotstyle paper-item span:focus {
+                outline: none;
+            }
+
+            /* Individual styles and effects */
+
+            /* Fill up */
+
+            .dotstyle-fillup paper-item span {
+                overflow: hidden;
+                background-color: transparent;
+                box-shadow: inset 0 0 0 2px var(--pf-dot-border-color, #fff);
+                -webkit-transition: background 0.3s ease;
+                transition: background 0.3s ease;
+            }
+
+            .dotstyle-fillup paper-item span::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                height: 0;
+                left: 0;
+                width: 100%;
+                background-color: var(--pf-selecteddot-color, #fff);
+                box-shadow: 0 0 1px #fff;
+                -webkit-transition: height 0.3s ease;
+                transition: height 0.3s ease;
+            }
+
+            .dotstyle-fillup paper-item span:hover,
+            .dotstyle-fillup paper-item span:focus {
+                background-color: var(--pf-dot-hover-color, rgba(0, 0, 0, 0.2));
+            }
+
+            .dotstyle-fillup paper-item.iron-selected span:after {
+                height: 100%;
+            }
+
+            /* Scale up */
+
+            .dotstyle-scaleup paper-item span {
+                -webkit-transition: -webkit-transform 0.3s ease, background-color 0.3s ease;
+                transition: transform 0.3s ease, background-color 0.3s ease;
+            }
+
+            .dotstyle-scaleup paper-item span:hover,
+            .dotstyle-scaleup paper-item span:focus {
+                background-color:  var(--pf-dot-hover-color, white);
+            }
+
+            .dotstyle-scaleup paper-item.iron-selected span {
+                background-color: var(--pf-selecteddot-color, white);
+                -webkit-transform: scale(1.5);
+                transform: scale(1.5);
+            }
+
+            /* Stroke */
+
+            .dotstyle-stroke paper-item span {
+                box-shadow: 0 0 0 2px var(--pf-dot-color,rgba(255, 255, 255, 0));
+                -webkit-transition: box-shadow 0.3s ease, background-color 0.3s ease;
+                transition: box-shadow 0.3s ease, background-color 0.3s ease;
+            }
+
+            .dotstyle-stroke paper-item span:hover,
+            .dotstyle-stroke paper-item span:focus {
+                background-color:  var(--pf-dot-hover-color, white);
+            }
+
+            .dotstyle-stroke paper-item.iron-selected span {
+                background-color: transparent;
+                box-shadow: 0 0 0 2px var(--pf-selecteddot-color,white);
+            }
+
+            /* Fill in */
+
+            .dotstyle-fillin paper-item span {
+                background-color: transparent;
+                box-shadow: inset 0 0 0 2px var(--pf-dot-border-color,white);
+                -webkit-transition: box-shadow 0.3s ease;
+                transition: box-shadow 0.3s ease;
+            }
+
+            .dotstyle-fillin paper-item span:hover,
+            .dotstyle-fillin paper-item span:focus {
+                box-shadow: inset 0 0 0 2px  var(--pf-dot-hover-color,rgba(255, 255, 255, 0.6));
+            }
+
+            .dotstyle-fillin paper-item.iron-selected span {
+                box-shadow: inset 0 0 0 8px var(--pf-selecteddot-color,white);
+            }
+
+            /* Circle grow */
+
+            .dotstyle-circlegrow paper-item span {
+                overflow: hidden;
+                background-color: transparent;
+                box-shadow: inset 0 0 0 2px var(--pf-dot-color,white);
+                -webkit-transition: opacity 0.3s ease;
+                transition: opacity 0.3s ease;
+            }
+
+            .dotstyle-circlegrow paper-item span::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                border-radius: 50%;
+                background-color: var(--pf-selecteddot-color,white);
+                -webkit-transform: scale(0);
+                transform: scale(0);
+                -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+                -webkit-transition: -webkit-transform 0.3s ease;
+                transition: transform 0.3s ease;
+            }
+
+            .dotstyle-circlegrow paper-item span:hover,
+            .dotstyle-circlegrow paper-item span:focus {
+                opacity: 0.7;
+            }
+
+
+            .dotstyle-circlegrow paper-item.iron-selected span::after {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+
+            /* Dot to stroke */
+
+            .dotstyle-dotstroke paper-item span {
+                box-shadow: inset 0 0 0 8px var(--pf-dot-color,white);;
+                -webkit-transition: box-shadow 0.3s ease;
+                transition: box-shadow 0.3s ease;
+            }
+
+            .dotstyle-dotstroke paper-item span:hover,
+            .dotstyle-dotstroke paper-item span:focus {
+                box-shadow: inset 0 0 0 8px var(--pf-dot-hover-color,white);
+            }
+
+            .dotstyle-dotstroke paper-item.iron-selected span {
+                box-shadow: inset 0 0 0 2px var(--pf-selecteddot-color,white);
+            }
+
+            /* SVG draw circle stroke */
+
+            .dotstyle-drawcircle paper-item {
+                width: 18px;
+                height: 18px;
+            }
+
+            .dotstyle-drawcircle paper-item span {
+                top: 3px;
+                left: 3px;
+                width: 12px;
+                height: 12px;
+                background-color: var(--pf-dot-color,white);
+                -webkit-transition: opacity 0.3s ease;
+                transition: opacity 0.3s ease;
+            }
+
+            .dotstyle-drawcircle paper-item svg {
+                z-index: 10;
+            }
+
+            .dotstyle-drawcircle paper-item svg circle {
+                opacity: 0;
+                fill: none;
+                stroke: var(--pf-dot-border-color,white);
+                stroke-width: 3;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-dasharray: 39 39;
+                stroke-dashoffset: 39;
+                /* length of circle path (pi*2r) */
+                -webkit-transition: stroke-dashoffset 0.3s, opacity 0.3s;
+                transition: stroke-dashoffset 0.3s, opacity 0.3s;
+            }
+
+            .dotstyle-drawcircle paper-item.iron-selected span,
+            .dotstyle-drawcircle paper-item span:hover,
+            .dotstyle-drawcircle paper-item span:focus {
+                opacity: 0.5;
+            }
+
+            .dotstyle-drawcircle paper-item.iron-selected svg circle {
+                opacity: 1;
+                stroke-dashoffset: 0;
+                -webkit-transition: stroke-dashoffset 0.3s, opacity 0.15s;
+                transition: stroke-dashoffset 0.3s, opacity 0.15s;
+            }
+
+            /* Small dot with stroke */
+
+            .dotstyle-smalldotstroke paper-item {
+                border-radius: 50%;
+                box-shadow: 0 0 0 2px var(--pf-pageindicator-bg-color,rgba(255, 255, 255, 0));
+                -webkit-transition: box-shadow 0.3s ease;
+                transition: box-shadow 0.3s ease;
+            }
+
+            .dotstyle-smalldotstroke paper-item span {
+                background-color: var(--pf-dot-dot-color,rgba(255, 255, 255, 0.7));
+                -webkit-transition: background-color 0.3s ease, -webkit-transform 0.3s ease;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+
+            .dotstyle-smalldotstroke paper-item span:hover,
+            .dotstyle-smalldotstroke paper-item span:focus,
+            .dotstyle-smalldotstroke paper-item.iron-selected span {
+                background-color: var(--pf-dot-hover-color,white);
+            }
+
+            .dotstyle-smalldotstroke paper-item.iron-selected span {
+                -webkit-transform: scale(0.4);
+                transform: scale(0.4);
+            }
+
+            .dotstyle-smalldotstroke paper-item.iron-selected {
+                box-shadow: 0 0 0 2px var(--pf-dot-border-color,whilte);
+            }
+
+            /* Puff */
+
+            .dotstyle-puff paper-item span {
+                border: 2px solid #fff;
+                -webkit-transition: border-color 0.3s ease;
+                transition: border-color 0.3s ease;
+            }
+
+            .dotstyle-puff paper-item span::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                visibility: hidden;
+                background: #c44d48;
+                border-radius: 50%;
+                box-shadow: 0 0 1px #c44d48;
+                opacity: 0;
+                -webkit-transform: scale(3);
+                transform: scale(3);
+                -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease, visibility 0s 0.3s;
+                transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+            }
+
+            .dotstyle-puff paper-item span:hover,
+            .dotstyle-puff paper-item span:focus,
+            .dotstyle-puff paper-item.iron-selected span {
+                border-color: #c44d48;
+            }
+
+            .dotstyle-puff paper-item.iron-selected span::after {
+                visibility: visible;
+                opacity: 1;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+
+            /* 3D Flip */
+
+            .dotstyle-flip paper-item {
+                -webkit-perspective: 1000px;
+                perspective: 1000px;
+            }
+
+            .dotstyle-flip paper-item span {
+                background-color: transparent;
+                -webkit-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+                -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+
+            .dotstyle-flip paper-item span::before,
+            .dotstyle-flip paper-item span::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-color: white;
+                content: '';
+                text-indent: 0;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+
+            .dotstyle-flip paper-item span::after {
+                background-color: #c44d48;
+                -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+            }
+
+            .dotstyle-flip paper-item span:hover,
+            .dotstyle-flip paper-item span:focus {
+                opacity: 0.8;
+            }
+
+            .dotstyle-flip paper-item.iron-selected span {
+                -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+            }
+
+            /* Tooltip */
+
+            .dotstyle-tooltip paper-item {
+                border: 2px solid #fff;
+                border-radius: 50%;
+                z-index: 1;
+                -webkit-transition: border-color 0.3s ease;
+                transition: border-color 0.3s ease;
+            }
+
+            .dotstyle-tooltip paper-item span {
+                top: auto;
+                bottom: 250%;
+                left: 50%;
+                visibility: hidden;
+                padding: 0 10px;
+                width: auto;
+                height: auto;
+                border-radius: 0;
+                background-color: #c44d48;
+                color: #fff;
+                text-indent: 0;
+                line-height: 2;
+                opacity: 0;
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+                -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s ease;
+                transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s ease;
+            }
+
+            .dotstyle-tooltip paper-item span::after { /* http: //cssarrowplease.com/ */
+                position: absolute;
+                left: 50%;
+                margin-left: -10px;
+                width: 0;
+                height: 0;
+                border: solid transparent;
+                border-width: 10px;
+                border-color: transparent;
+                border-top-color: #c44d48;
+                content: '';
+                pointer-events: none;
+                top: 99%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                -webkit-transition: opacity 0.3s ease;
+                transition: opacity 0.3s ease;
+            }
+
+            .no-touch .dotstyle-tooltip paper-item:hover span,
+            .dotstyle-tooltip paper-item.iron-selected span {
+                z-index: 100;
+                visibility: visible;
+                opacity: 1;
+                -webkit-transform: translateX(-50%) translateY(0%);
+                transform: translateX(-50%) translateY(0%);
+                -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+
+            .dotstyle-tooltip paper-item.iron-selected {
+                border-color: #c44d48;
+            }
+
+            .dotstyle-tooltip paper-item:hover {
+                z-index: 100;
+            }
+
+            .no-touch .dotstyle-tooltip paper-listbox:hover paper-item.iron-selected span {
+                opacity: 0.2;
+            }
+
+            .dotstyle-tooltip paper-listbox paper-item.iron-selected:hover span {
+                opacity: 1;
+            }
+
+            /* Dot move */
+
+            .dotstyle-dotmove paper-item:last-child {
+                position: absolute;
+                left: 0;
+                margin: 0;
+                width: 48px;
+                -webkit-transition: -webkit-transform 0.3s ease;
+                transition: transform 0.3s ease;
+            }
+
+            .dotstyle-dotmove paper-item:last-child::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: -1px;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                background: #c44d48;
+                -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+            }
+
+            .dotstyle-dotmove paper-item.iron-selected:first-child ~ paper-item:last-child {
+                -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+            }
+
+            .dotstyle-dotmove paper-item.iron-selected:nth-child(2) ~ paper-item:last-child {
+                -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+            }
+
+            .dotstyle-dotmove paper-item.iron-selected:nth-child(3) ~ paper-item:last-child {
+                -webkit-transform: translateX(200%);
+                transform: translateX(200%);
+            }
+
+            .dotstyle-dotmove paper-item.iron-selected:nth-child(4) ~ paper-item:last-child {
+                -webkit-transform: translateX(300%);
+                transform: translateX(300%);
+            }
+
+            .dotstyle-dotmove paper-item.iron-selected:nth-child(5) ~ paper-item:last-child {
+                -webkit-transform: translateX(400%);
+                transform: translateX(400%);
+            }
+
+            .dotstyle-dotmove paper-item.iron-selected:nth-child(6) ~ paper-item:last-child {
+                -webkit-transform: translateX(500%);
+                transform: translateX(500%);
+            }
+
+            .dotstyle-dotmove paper-item span {
+                -webkit-transition: background-color 0.3s ease;
+                transition: background-color 0.3s ease;
+            }
+
+            .dotstyle-dotmove paper-item span:hover,
+            .dotstyle-dotmove paper-item span:focus {
+                background-color: #fff;
+            }
+
+            /* Fly in */
+
+            .dotstyle-hop paper-item span {
+                border: 2px solid #c44d48;
+                background: transparent;
+            }
+
+            .dotstyle-hop paper-item span::after {
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                border-radius: 50%;
+                visibility: hidden;
+                background: #fff;
+                opacity: 0;
+                -webkit-transform: rotate(-100deg);
+                transform: rotate(-100deg);
+                -webkit-transform-origin: -200% 50%;
+                transform-origin: -200% 50%;
+                -webkit-transition: -webkit-transform 0.3s ease 0.3s, opacity 0.3s ease, visibility 0s 0.3s ease;
+                transition: transform 0.3s ease 0.3s, opacity 0.3s ease, visibility 0s 0.3s ease;
+            }
+
+            .dotstyle-hop paper-item span:focus {
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+            .dotstyle-hop paper-item.iron-selected-from-right span::after {
+                -webkit-transition: none;
+                transition: none;
+                -webkit-transform: rotate(100deg);
+                transform: rotate(100deg);
+                -webkit-transform-origin: 300% 50%;
+                transform-origin: 300% 50%;
+            }
+
+            .dotstyle-hop paper-item.iron-selected span::after {
+                visibility: visible;
+                opacity: 1;
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+                -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+
+            /* Fall */
+
+            .dotstyle-fall paper-item::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                visibility: hidden;
+                opacity: 0;
+                left: 0;
+                background-color: #c44d48;
+                border-radius: 50%;
+                -webkit-transform: translateY(-200%);
+                transform: translateY(-200%);
+                -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
+                transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
+            }
+
+            .dotstyle-fall paper-item span {
+                -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+                transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+            }
+
+            .dotstyle-fall paper-item:hover span,
+            .dotstyle-fall paper-item span:focus,
+            .dotstyle-fall paper-item.iron-selected span {
+                background-color: #fff;
+            }
+
+            .dotstyle-fall paper-item.iron-selected::after {
+                opacity: 1;
+                visibility: visible;
+                -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                -webkit-transform: translateY(0%);
+                transform: translateY(0%);
+            }
+
+            .dotstyle-fall paper-item.iron-selected span {
+                opacity: 0;
+                -webkit-transform: translateY(200%);
+                transform: translateY(200%);
+            }
+
+        </style>
+
+        <!--
+
+              <template is="dom-if" if="{{isShow('puff')}}">
+                  <div class="dotstyle dotstyle-puff">
+                      <h2>Puff</h2>
+                      <paper-listbox selected="0">
+                          <paper-item><span>Item 1</span></paper-item>
+                          <paper-item><span>Item 2</span></paper-item>
+                          <paper-item><span>Item 3</span></paper-item>
+                          <paper-item><span>Item 4</span></paper-item>
+                      </paper-listbox>
+                  </div>
+              </template>
+              <template is="dom-if" if="{{isShow('flip')}}">
+                  <div class="dotstyle dotstyle-flip">
+                      <h2>Flip</h2>
+                      <paper-listbox selected="0">
+                          <paper-item><span>Item 1</span></paper-item>
+                          <paper-item><span>Item 2</span></paper-item>
+                          <paper-item><span>Item 3</span></paper-item>
+                          <paper-item><span>Item 4</span></paper-item>
+                      </paper-listbox>
+                  </div>
+              </template>
+              <template is="dom-if" if="{{isShow('tooltip')}}">
+                  <div class="dotstyle dotstyle-tooltip">
+                      <h2>Tooltip</h2>
+                      <paper-listbox selected="0">
+                          <paper-item><span>Item 1</span></paper-item>
+                          <paper-item><span>Item 2</span></paper-item>
+                          <paper-item><span>Item 3</span></paper-item>
+                          <paper-item><span>Item 4</span></paper-item>
+                      </paper-listbox>
+                  </div>
+              </template>
+              <template is="dom-if" if="{{isShow('dotmove')}}">
+                  <div class="dotstyle dotstyle-dotmove">
+                      <h2>Dot move</h2>
+                      <paper-listbox selected="0">
+                          <paper-item><span>Item 1</span></paper-item>
+                          <paper-item><span>Item 2</span></paper-item>
+                          <paper-item><span>Item 3</span></paper-item>
+                          <paper-item><span>Item 4</span></paper-item>
+                      </paper-listbox>
+                  </div>
+              </template>
+              <template is="dom-if" if="{{isShow('hop')}}">
+                  <div class="dotstyle dotstyle-hop">
+                      <h2>Hop</h2>
+                      <paper-listbox selected="0">
+                          <paper-item><span>Item 1</span></paper-item>
+                          <paper-item><span>Item 2</span></paper-item>
+                          <paper-item><span>Item 3</span></paper-item>
+                          <paper-item><span>Item 4</span></paper-item>
+                      </paper-listbox>
+                  </div>
+              </template>
+      -->
+        <div id="dotdiv" class$="{{getClasses('k')}}">
+            <paper-listbox selected="0">
+                <dom-repeat items="[[indicatordata]]" as="dataitem">
+                    <template>
+                        <paper-item><span>[[dataitem.label]]</span></paper-item>
+                    </template>
+                </dom-repeat>
+            </paper-listbox>
+        </div>
+
+    </template>
+
+    <script>
+        class MyElement extends Polymer.Element {
+            static get is() {
+                return 'pf-pageindicator';
+            }
+
+            static get properties() {
+                return {
+                    prop1: {
+                        type: String,
+                        value: 'pf-pageindicator'
+                    },
+                    dotstyle: {
+                        type: String,
+                        value: 'dotstyle-fillup'
+
+                    },
+                    indicatordata: {
+                        type: Object,
+                        value: null
+
+                    },
+                    totaldots: {
+                        type: Number,
+                        value: 2
+                    }
+                };
+            }
+
+            isShow(type) {
+                if (type == this.dotstyle) {
+                    return true;
+                } else {
+                    return false
+                }
+            }
+
+            getClasses(e) {
+                var classes = 'dotstyle ' + this.dotstyle
+                return classes;
+            }
+
+            formatdata(e) {
+
+                var arr = []
+
+                if (this.indicatordata) {
+
+
+                } else{
+                    if (this.totaldots < 2) {
+                        this.totaldots = 2
+                    }
+                    for (var i = 0; i < this.totaldots; i++) {
+                        var data = {
+
+                            id: i,
+                            label: "Item " + i,
+
+                        }
+                        arr.push(data);
+                    }
+                    this.indicatordata = JSON.parse(JSON.stringify(arr));
+                }
+            }
+
+
+            connectedCallback() {
+
+                this.formatdata(this.indicatordata);
+                super.connectedCallback();
+
+
+            }
+        }
+
+        window.customElements.define(MyElement.is, MyElement);
+    </script>
+</dom-module>
