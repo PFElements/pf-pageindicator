@@ -50,7 +50,7 @@
                 border-radius: 50%;
                 background-color: var(--pf-dot-color, white);
 
-                text-indent: -999em; /* make the text accessible to screen readers */
+                text-indent: -999em; 
                 cursor: pointer;
                 position: absolute;
             }
@@ -599,64 +599,7 @@
 
         </style>
 
-        <!--
 
-              <template is="dom-if" if="{{isShow('puff')}}">
-                  <div class="dotstyle dotstyle-puff">
-                      <h2>Puff</h2>
-                      <paper-listbox selected="0">
-                          <paper-item><span>Item 1</span></paper-item>
-                          <paper-item><span>Item 2</span></paper-item>
-                          <paper-item><span>Item 3</span></paper-item>
-                          <paper-item><span>Item 4</span></paper-item>
-                      </paper-listbox>
-                  </div>
-              </template>
-              <template is="dom-if" if="{{isShow('flip')}}">
-                  <div class="dotstyle dotstyle-flip">
-                      <h2>Flip</h2>
-                      <paper-listbox selected="0">
-                          <paper-item><span>Item 1</span></paper-item>
-                          <paper-item><span>Item 2</span></paper-item>
-                          <paper-item><span>Item 3</span></paper-item>
-                          <paper-item><span>Item 4</span></paper-item>
-                      </paper-listbox>
-                  </div>
-              </template>
-              <template is="dom-if" if="{{isShow('tooltip')}}">
-                  <div class="dotstyle dotstyle-tooltip">
-                      <h2>Tooltip</h2>
-                      <paper-listbox selected="0">
-                          <paper-item><span>Item 1</span></paper-item>
-                          <paper-item><span>Item 2</span></paper-item>
-                          <paper-item><span>Item 3</span></paper-item>
-                          <paper-item><span>Item 4</span></paper-item>
-                      </paper-listbox>
-                  </div>
-              </template>
-              <template is="dom-if" if="{{isShow('dotmove')}}">
-                  <div class="dotstyle dotstyle-dotmove">
-                      <h2>Dot move</h2>
-                      <paper-listbox selected="0">
-                          <paper-item><span>Item 1</span></paper-item>
-                          <paper-item><span>Item 2</span></paper-item>
-                          <paper-item><span>Item 3</span></paper-item>
-                          <paper-item><span>Item 4</span></paper-item>
-                      </paper-listbox>
-                  </div>
-              </template>
-              <template is="dom-if" if="{{isShow('hop')}}">
-                  <div class="dotstyle dotstyle-hop">
-                      <h2>Hop</h2>
-                      <paper-listbox selected="0">
-                          <paper-item><span>Item 1</span></paper-item>
-                          <paper-item><span>Item 2</span></paper-item>
-                          <paper-item><span>Item 3</span></paper-item>
-                          <paper-item><span>Item 4</span></paper-item>
-                      </paper-listbox>
-                  </div>
-              </template>
-      -->
         <div id="dotdiv" class$="{{getClasses('k')}}">
             <paper-listbox selected="0">
                 <dom-repeat items="[[indicatordata]]" as="dataitem">
