@@ -4,7 +4,7 @@ A Polymer 2.0 based collection of reusable web components
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element)
 
 ## Demo
-[Click here for docs & demo](http://github.com)
+[Click here for docs & demo](https://github.com/PFElements/pf-pageindicator/blob/master/demo/index.html)
 
 
 # PF Page Indicator
