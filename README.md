@@ -6,6 +6,19 @@ A Polymer 2.0 based collection of reusable web components
 ## Demo
 [Click here for docs & demo](https://github.com/PFElements/pf-pageindicator/blob/master/demo/index.html)
 
+<!---
+
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="pf-pageindicator.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+
+-->
+html
+<pf-pageindicator></pf-pageindicator>
 
 # PF Page Indicator
 
