@@ -1,8 +1,9 @@
-<link rel="import" href="bower_components/polymer/polymer.html">
-<link rel="import" href="bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
+
 
 <!--
-`pixy-dot-nav`
+`pf-pageindicator`
 
 
 @demo demo/index.html
@@ -50,7 +51,7 @@
                 border-radius: 50%;
                 background-color: var(--pf-dot-color, white);
 
-                text-indent: -999em; 
+                text-indent: -999em; /* make the text accessible to screen readers */
                 cursor: pointer;
                 position: absolute;
             }
@@ -198,7 +199,7 @@
             }
 
             .dotstyle-dotstroke paper-item.iron-selected span {
-                box-shadow: inset 0 0 0 2px var(--pf-selecteddot-color,white);
+                box-shadow: inset 0 0 0 2px var(--pf-selecteddot-color,pink);
             }
 
             /* SVG draw circle stroke */
@@ -276,13 +277,13 @@
             }
 
             .dotstyle-smalldotstroke paper-item.iron-selected {
-                box-shadow: 0 0 0 2px var(--pf-dot-border-color,whilte);
+                box-shadow: 0 0 0 2px var(--pf-dot-border-color,white);
             }
 
             /* Puff */
 
             .dotstyle-puff paper-item span {
-                border: 2px solid #fff;
+                border: 2px solid var(--pf-dot-border-color,white);
                 -webkit-transition: border-color 0.3s ease;
                 transition: border-color 0.3s ease;
             }
@@ -295,9 +296,9 @@
                 width: 100%;
                 height: 100%;
                 visibility: hidden;
-                background: #c44d48;
+                background: var(--pf-selecteddot-color,#00897B);
                 border-radius: 50%;
-                box-shadow: 0 0 1px #c44d48;
+                box-shadow: 0 0 1px var(--pf-selecteddot-color,#00897B);
                 opacity: 0;
                 -webkit-transform: scale(3);
                 transform: scale(3);
@@ -308,7 +309,7 @@
             .dotstyle-puff paper-item span:hover,
             .dotstyle-puff paper-item span:focus,
             .dotstyle-puff paper-item.iron-selected span {
-                border-color: #c44d48;
+                border-color:var(--pf-dot-hover-color,#00897B);
             }
 
             .dotstyle-puff paper-item.iron-selected span::after {
@@ -343,7 +344,7 @@
                 width: 100%;
                 height: 100%;
                 border-radius: 50%;
-                background-color: white;
+                background-color: var(--pf-dot-color,white);
                 content: '';
                 text-indent: 0;
                 -webkit-backface-visibility: hidden;
@@ -351,7 +352,7 @@
             }
 
             .dotstyle-flip paper-item span::after {
-                background-color: #c44d48;
+                background-color: var(--pf-selecteddot-color,#00897B);
                 -webkit-transform: rotateY(180deg);
                 transform: rotateY(180deg);
             }
@@ -369,7 +370,7 @@
             /* Tooltip */
 
             .dotstyle-tooltip paper-item {
-                border: 2px solid #fff;
+                border: 2px solid var(--pf-dot-border-color,white);
                 border-radius: 50%;
                 z-index: 1;
                 -webkit-transition: border-color 0.3s ease;
@@ -385,7 +386,7 @@
                 width: auto;
                 height: auto;
                 border-radius: 0;
-                background-color: #c44d48;
+                background-color: var(--pf-dot-color,#00897B);
                 color: #fff;
                 text-indent: 0;
                 line-height: 2;
@@ -405,7 +406,7 @@
                 border: solid transparent;
                 border-width: 10px;
                 border-color: transparent;
-                border-top-color: #c44d48;
+                border-top-color:var(--pf-selecteddot-color,#00897B);
                 content: '';
                 pointer-events: none;
                 top: 99%;
@@ -427,7 +428,7 @@
             }
 
             .dotstyle-tooltip paper-item.iron-selected {
-                border-color: #c44d48;
+                border-color: var(--pf-selecteddot-color,#00897B);
             }
 
             .dotstyle-tooltip paper-item:hover {
@@ -461,7 +462,7 @@
                 width: 18px;
                 height: 18px;
                 border-radius: 50%;
-                background: #c44d48;
+                background: #00897B;
                 -webkit-transform: translateX(-50%);
                 transform: translateX(-50%);
             }
@@ -509,7 +510,7 @@
             /* Fly in */
 
             .dotstyle-hop paper-item span {
-                border: 2px solid #c44d48;
+                border: 2px solid var(--pf-dot-border-color,#00897B);
                 background: transparent;
             }
 
@@ -521,7 +522,7 @@
                 left: 0;
                 border-radius: 50%;
                 visibility: hidden;
-                background: #fff;
+                background: var(--pf-selecteddot-color,white);
                 opacity: 0;
                 -webkit-transform: rotate(-100deg);
                 transform: rotate(-100deg);
@@ -532,7 +533,7 @@
             }
 
             .dotstyle-hop paper-item span:focus {
-                background: rgba(255, 255, 255, 0.2);
+                background: var(--pf-dot-hover-color,rgba(255, 255, 255, 0.2));
             }
 
             .dotstyle-hop paper-item.iron-selected-from-right span::after {
@@ -563,7 +564,7 @@
                 visibility: hidden;
                 opacity: 0;
                 left: 0;
-                background-color: #c44d48;
+                background-color: var(--pf-selecteddot-color,#00897B);
                 border-radius: 50%;
                 -webkit-transform: translateY(-200%);
                 transform: translateY(-200%);
@@ -579,7 +580,7 @@
             .dotstyle-fall paper-item:hover span,
             .dotstyle-fall paper-item span:focus,
             .dotstyle-fall paper-item.iron-selected span {
-                background-color: #fff;
+                background-color: var(--pf-dot-hover-color,#00897B);
             }
 
             .dotstyle-fall paper-item.iron-selected::after {
@@ -600,9 +601,9 @@
         </style>
 
 
-        <div id="dotdiv" class$="{{getClasses('k')}}">
-            <paper-listbox selected="0">
-                <dom-repeat items="[[indicatordata]]" as="dataitem">
+        <div id="dotdiv" class$="{{_getClasses('k')}}">
+            <paper-listbox selected="{{selected}}">
+                <dom-repeat id="repeatlist" items="[[indicatordata]]" as="dataitem">
                     <template>
                         <paper-item><span>[[dataitem.label]]</span></paper-item>
                     </template>
@@ -613,7 +614,7 @@
     </template>
 
     <script>
-        class MyElement extends Polymer.Element {
+        class PageIndiccator extends Polymer.Element {
             static get is() {
                 return 'pf-pageindicator';
             }
@@ -637,24 +638,20 @@
                     totaldots: {
                         type: Number,
                         value: 2
+                    }, selected: {
+                        type: Number,
+                        value: 0
                     }
                 };
             }
 
-            isShow(type) {
-                if (type == this.dotstyle) {
-                    return true;
-                } else {
-                    return false
-                }
-            }
 
-            getClasses(e) {
+        _getClasses(e) {
                 var classes = 'dotstyle ' + this.dotstyle
                 return classes;
             }
 
-            formatdata(e) {
+             _formatdata(e) {
 
                 var arr = []
 
@@ -679,15 +676,15 @@
             }
 
 
-            connectedCallback() {
+             connectedCallback() {
 
-                this.formatdata(this.indicatordata);
+                this._formatdata(this.indicatordata);
                 super.connectedCallback();
 
 
             }
         }
 
-        window.customElements.define(MyElement.is, MyElement);
+        window.customElements.define(PageIndiccator.is, PageIndiccator);
     </script>
 </dom-module>

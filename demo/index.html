@@ -4,79 +4,191 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>pixy-dot-nav demo</title>
+    <title>pf-pageindicator demo</title>
+    <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
-    <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-
-    <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../../bower_components/iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../pf-pageindicator.html">
+    <style is="custom-style" >
+        #pf {
+            --pf-pageindicator-bg-color: #e0e0e0;
+            --pf-dot-color: #fff;
+            --pf-selecteddot-color: white;
+            --pf-dot-border-color: lightseagreen;
+            --pf-dot-hover-color: white
+        }
 
-    <style is="custom-style" include="demo-pages-shared-styles">
-#pg{
-    --pf-pageindicator-bg-color:red;
-    --pf-dot-color:pink;
-    --pf-selecteddot-color:blue;
-    --pf-dot-border-color:black;
-    --pf-dot-hover-color:green
-}
+
     </style>
 </head>
 <body>
 <div class="vertical-section-container centered">
-    <h3>Basic pixy-dot-nav demo</h3>
+    <h3>Basic PF Page indicator demo</h3>
     <demo-snippet>
+        <template>
+            <style is="custom-style">
+                #pf-indicator {
+                    --pf-pageindicator-bg-color: #e0e0e0;
 
-            <h2>Fill up</h2>
+                    --pf-selecteddot-color: white;
+                    --pf-dot-border-color: lightseagreen;
+                    --pf-dot-hover-color: white
+                }
+
+            </style>
             <pf-pageindicator
-                    dotstyle="dotstyle-fillup" totaldots="5">
+                    id="pf-indicator" dotstyle="dotstyle-fillup" totaldots="5">
             </pf-pageindicator>
-        <h2>Scale up</h2>
+
+        </template>
+
+    </demo-snippet>
+</div>
+<div class="vertical-section-container centered">
+    <h2>PF Page indicator with selected property</h2>
+    <demo-snippet>
+        <template>
             <pf-pageindicator
-                    dotstyle="dotstyle-scaleup" totaldots="5">
+                    dotstyle="dotstyle-smalldotstroke" totaldots="5" selected="3">
             </pf-pageindicator>
-        <h2>Stroke</h2>
-            <pf-pageindicator
-                    dotstyle="dotstyle-stroke" totaldots="5">
-            </pf-pageindicator>
-        <h2>Fill in</h2>
-            <pf-pageindicator
-                    dotstyle="dotstyle-fillin" totaldots="5">
-            </pf-pageindicator>
-        <h2>Circle Grow</h2>
-            <pf-pageindicator
-                   dotstyle="dotstyle-circlegrow" totaldots="5">
-            </pf-pageindicator>
-        <h2></h2>
-        <h2>Dot Stroke</h2>
-            <pf-pageindicator
-                    dotstyle="dotstyle-dotstroke" totaldots="5">
-            </pf-pageindicator>
-        <h2>Draw Circle</h2>
-            <pf-pageindicator
-                    dotstyle="dotstyle-drawcircle" totaldots="5">
-            </pf-pageindicator>
-        <h2>Small Dot With Stroke</h2>
-            <pf-pageindicator
-                    id="pg" dotstyle="dotstyle-smalldotstroke" totaldots="5">
-            </pf-pageindicator>
-        <h2>Fall In</h2>
-            <pf-pageindicator
-                    dotstyle="dotstyle-fall"  totaldots="5">
-            </pf-pageindicator>
-            <h2>Page indicator with data </h2>
+        </template>
+    </demo-snippet>
+</div>
+<div class="vertical-section-container centered"><h2>Page indicator with data </h2>
+    <demo-snippet>
+        <template>
             <pf-pageindicator
                     dotstyle="dotstyle-tooltip"
-                    indicatordata='[{"label":"Home"},{"label":"About"},{"label":"contact us"}]'
-
-            >
+                    indicatordata='[{"label":"Home"},{"label":"About"},{"label":"contact us"}]'>
 
             </pf-pageindicator>
         </template>
     </demo-snippet>
 </div>
-<script>
+<div class="vertical-section-container centered"><h2>Dot Hop</h2>
+    <demo-snippet>
+        <template>
+            <style is="custom-style" include="demo-pages-shared-styles">
+                #pf-dothop {
+                    --pf-selecteddot-color: #80CBC4;
 
-</script>
+                }
+
+
+            </style>
+            <pf-pageindicator
+                    id="pf-dothop"  dotstyle="dotstyle-hop" totaldots="5">
+            </pf-pageindicator>
+        </template>
+    </demo-snippet>
+</div>
+<div class="vertical-section-container centered">
+    <h2>Stroke</h2>
+    <demo-snippet>
+        <template>
+            <pf-pageindicator
+                    dotstyle="dotstyle-stroke" totaldots="5">
+            </pf-pageindicator>
+        </template>
+    </demo-snippet>
+</div>
+<div class="vertical-section-container centered">
+    <h2>Fill in</h2>
+    <demo-snippet>
+        <template>
+            <pf-pageindicator
+                    dotstyle="dotstyle-fillin" totaldots="5">
+            </pf-pageindicator>
+        </template>
+    </demo-snippet>
+</div>
+<div class="vertical-section-container centered"><h2>Circle Grow</h2>
+    <demo-snippet>
+        <template>
+            <pf-pageindicator
+                    dotstyle="dotstyle-circlegrow" totaldots="5">
+            </pf-pageindicator>
+        </template>
+    </demo-snippet>
+</div>
+<div class="vertical-section-container centered">
+    <h2>Dot Stroke</h2>
+    <demo-snippet>
+        <template>
+            <style is="custom-style" include="demo-pages-shared-styles">
+                #pf-dotstrok {
+                    --pf-pageindicator-bg-color: #e0e0e0;
+                    --pf-dot-color: #80CBC4;
+
+                    --pf-selecteddot-color: #fff;
+
+                    --pf-dot-hover-color: #004D40;
+                }
+
+
+            </style>
+            <pf-pageindicator
+                    id="pf-dotstrok" dotstyle="dotstyle-dotstroke" totaldots="5">
+            </pf-pageindicator>
+        </template>
+    </demo-snippet>
+</div>
+<div class="vertical-section-container centered"><h2>Draw Circle</h2>
+    <demo-snippet>
+        <template>
+            <pf-pageindicator
+                    dotstyle="dotstyle-drawcircle" totaldots="5">
+            </pf-pageindicator>
+        </template>
+    </demo-snippet>
+</div>
+<div class="vertical-section-container centered"><h2>Small Dot With Stroke</h2>
+    <demo-snippet>
+        <template>
+            <pf-pageindicator
+                    dotstyle="dotstyle-smalldotstroke" totaldots="5" selected="3">
+            </pf-pageindicator>
+        </template>
+    </demo-snippet>
+</div>
+<div class="vertical-section-container centered"><h2>Puff</h2>
+    <demo-snippet>
+        <template>
+            <pf-pageindicator
+                    dotstyle="dotstyle-puff" totaldots="5">
+            </pf-pageindicator>
+        </template>
+    </demo-snippet>
+</div>
+<div class="vertical-section-container centered"><h2>Flip</h2>
+    <demo-snippet>
+        <template>
+            <pf-pageindicator
+                    dotstyle="dotstyle-flip" totaldots="5">
+            </pf-pageindicator>
+        </template>
+    </demo-snippet>
+</div>
+<div class="vertical-section-container centered"><h2>Tool Tip</h2>
+    <demo-snippet>
+        <template>
+            <pf-pageindicator
+                    dotstyle="dotstyle-tooltip" totaldots="5">
+            </pf-pageindicator>
+        </template>
+    </demo-snippet>
+</div>
+
+<div class="vertical-section-container centered"><h2>Fall In</h2>
+    <demo-snippet>
+        <template>
+            <pf-pageindicator
+                    dotstyle="dotstyle-fall" totaldots="5">
+            </pf-pageindicator>
+        </template>
+    </demo-snippet>
+</div>
+
 </body>
 </html>
