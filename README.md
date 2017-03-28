@@ -1,7 +1,7 @@
 # pf-elements
 A Polymer 2.0 based collection of reusable web components 
 
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)]
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element)
 
 
 # PF Page Indicator
