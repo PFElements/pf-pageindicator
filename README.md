@@ -3,6 +3,9 @@ A Polymer 2.0 based collection of reusable web components
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element)
 
+## Demo
+[Click here for docs & demo](http://github.com)
+
 
 # PF Page Indicator
 
@@ -27,10 +30,6 @@ See the list of elements, demos, and documentation by browsing this collection o
 
 Comments, questions, suggestions, issues, and pull requests are all welcome.
 
-### Get in touch with the team
-
-
-- [Twitter](https://twitter.com/)
 
 ### Some ways to help:
 

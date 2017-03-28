@@ -1,6 +1,7 @@
 {
   "name": "pixy-dot-nav",
   "main": "pixy-dot-nav.html",
+  "element-collection": "pf-elements",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0-rc.2",
     "paper-listbox": "PolymerElements/paper-listbox#2.0-preview"
