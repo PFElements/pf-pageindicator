@@ -6,6 +6,13 @@ A Polymer 2.0 based collection of reusable web components
 ## Demo
 [Click here for docs & demo](https://github.com/PFElements/pf-pageindicator/blob/master/demo/index.html)
 
+<base href="https://user-content-dot-custom-elements.appspot.com/PFElements/pf-pageindicator/94e0321e4ade80e3357d167923dc2db20721c957/pf-pageindicator/">
+<!-- START-HIDDEN-SECTION: Add imports and styling here. -->
+<script src="../webcomponentsjs/webcomponents-lite.js"></script>
+<link rel="import" href="pf-pageindicator.html">
+<!-- END-HIDDEN-SECTION: Add the visible part of the demo below. -->
+<pf-pageindicator>...</pf-pageindicator>
+
 <!---
 
 <custom-element-demo>
