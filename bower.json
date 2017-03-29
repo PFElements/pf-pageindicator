@@ -33,6 +33,13 @@
     "page indicator",
     "dots"
   ],
+  "bugs": {
+    "url": "https://github.com/PFElements/pf-pageindicator/issues"
+  },
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PFElements/pf-pageindicator"
+  },
   "resolutions": {
     "polymer": "^2.0.0-rc.2"
   }

@@ -28,14 +28,14 @@ PF Elements is a collection that contains all elements listed below.
 
 
 
-[pf-pageindicator](https://github.com/PFElements/pf-pageindicator) [![GitHub version](https://badge.fury.io/gh/PFElements%2Fpf-pageindicator.svg)](https://badge.fury.io/gh/PFElements%2Fpf-pageindicator)  [![Build Status](https://travis-ci.org/PFElements/pf-pageindicator.svg?branch=master)](https://travis-ci.org/PFElements/pf-pageindicator) (https://github.com/PFElements/pf-pageindicator/issues/1) 
+[pf-pageindicator](https://github.com/PFElements/pf-pageindicator) [![GitHub version](https://badge.fury.io/gh/PFElements%2Fpf-pageindicator.svg)](https://badge.fury.io/gh/PFElements%2Fpf-pageindicator)  [![Build Status](https://travis-ci.org/PFElements/pf-pageindicator.svg?branch=master)](https://travis-ci.org/PFElements/pf-pageindicator) 
 
 
 ## Learn more
 
 See the list of elements, demos, and documentation by browsing this collection on webcomponents.org:
 
-### [Go to webcomponents.org ›]
+### [Take me to webcomponents.org ›](https://www.webcomponents.org/element/PFElements/pf-pageindicator)
 
 ---
 
