@@ -4,12 +4,10 @@ A Polymer 2.0 based collection of reusable web components
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element)
 
 ## Demo
-[Click here for docs & demo](https://github.com/PFElements/pf-pageindicator/blob/master/demo/index.html)
 
+_[Demo and API docs](https://www.webcomponents.org/element/PFElements/pf-pageindicator)_
 
-
-
-# PF Page Indicator
+# PF Page Indicator.
 
 A Polymer 2.0 based custom elements that can be used to indicate the current page in a stack of pages. 
 

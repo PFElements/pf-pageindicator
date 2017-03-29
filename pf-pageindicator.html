@@ -1,22 +1,75 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
-
 
 <!--
     @license MIT
 
     A Polymer 2.0 based custom elements that can be used to indicate the current page in a stack of pages (iron-pages)
 `pixy-dot-nav`
+-->
 
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-listbox/paper-listbox.html">
+
+
+<!--
+# PF Page Indicator.
+
+A Polymer 2.0 based custom elements that can be used to indicate the current page in a stack of pages.
+
+PF Elements is a collection that contains all elements listed below.
+
+
+
+[pf-pageindicator](https://github.com/PFElements/pf-pageindicator) [![GitHub version](https://badge.fury.io/gh/PFElements%2Fpf-pageindicator.svg)](https://badge.fury.io/gh/PFElements%2Fpf-pageindicator)  [![Build Status](https://travis-ci.org/PFElements/pf-pageindicator.svg?branch=master)](https://travis-ci.org/PFElements/pf-pageindicator)
+
+## Example
+```html
+ <pf-pageindicator totaldots="5"></pf-pageindicator>
+```
+### Styling
+The following custom properties and mixins are available for styling:
+
+Custom property               | Description
+------------------------------|-------------
+`--pf-pageindicator-bg-color` | The pf-pageindicator background-color
+`--pf-dot-color`              | The pf-pageindicator dot color
+`--pf-selecteddot-color`      | The pf-pageindicator Selecteddot color
+`--pf-dot-border-color`       | The pf-pageindicator Border color color
+`--pf-dot-hover-color`        | The pf-pageindicator Mouse over color color
+
+## Learn more
+
+See the list of elements, demos, and documentation by browsing this collection on webcomponents.org:
+
+### [Take me to webcomponents.org ›](https://www.webcomponents.org/element/PFElements/pf-pageindicator)
+
+
+@group PF Elements
 @element pf-pageindicator
 @demo demo/index.html
-@group PF Elements
+@hero hero.svg
+
+
 -->
 
 <dom-module id="pf-pageindicator">
     <template>
         <style>
+            :host {
+                display: block;
 
+
+
+            }
+            :host(.capsule) {
+                border-radius: 24px;
+            }
+
+            :host(.fit-bottom) {
+                width: 100%;
+                min-width: 0;
+                border-radius: 0;
+                margin: 0;
+            }
             *:focus {
                 outline: none;
             }
