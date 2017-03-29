@@ -1,6 +1,7 @@
 {
-  "name": "pixy-dot-nav",
-  "main": "pixy-dot-nav.html",
+  "name": "pf-pageindicator",
+
+  "main": "pf-pageindicator.html",
   "element-collection": "pf-elements",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0-rc.2",
@@ -38,7 +39,7 @@
   },
     "repository": {
     "type": "git",
-    "url": "git+https://github.com/PFElements/pf-pageindicator"
+    "url": "https://github.com/PFElements/pf-pageindicator"
   },
   "resolutions": {
     "polymer": "^2.0.0-rc.2"
