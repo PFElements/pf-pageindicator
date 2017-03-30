@@ -169,6 +169,26 @@ See the list of elements, demos, and documentation by browsing this collection o
                 transform: scale(1.5);
             }
 
+            /* Number */
+
+
+            .dotstyle-number paper-item span {
+                -webkit-transition: -webkit-transform 0.3s ease, background-color 0.3s ease;
+                transition: transform 0.3s ease, background-color 0.3s ease;
+                text-indent: 0em;
+                text-align: center;
+            }
+
+            .dotstyle-number paper-item span:hover,
+            .dotstyle-number paper-item span:focus {
+                background-color:  var(--pf-dot-hover-color, white);
+            }
+
+            .dotstyle-number paper-item.iron-selected span {
+                background-color: var(--pf-selecteddot-color, white);
+                -webkit-transform: scale(1.5);
+                transform: scale(1.5);
+            }
             /* Stroke */
 
             .dotstyle-stroke paper-item span {
@@ -186,7 +206,6 @@ See the list of elements, demos, and documentation by browsing this collection o
                 background-color: transparent;
                 box-shadow: 0 0 0 2px var(--pf-selecteddot-color,white);
             }
-
             /* Fill in */
 
             .dotstyle-fillin paper-item span {
@@ -723,7 +742,7 @@ See the list of elements, demos, and documentation by browsing this collection o
                         var data = {
 
                             id: i,
-                            label: "Item " + i,
+                            label: i+1,
 
                         }
                         arr.push(data);
