@@ -18,10 +18,20 @@ PF Elements is a collection that contains all elements listed below.
 [pf-pageindicator](https://github.com/PFElements/pf-pageindicator) [![GitHub version](https://badge.fury.io/gh/PFElements%2Fpf-pageindicator.svg)](https://badge.fury.io/gh/PFElements%2Fpf-pageindicator)  [![Build Status](https://travis-ci.org/PFElements/pf-pageindicator.svg?branch=master)](https://travis-ci.org/PFElements/pf-pageindicator) 
 
 ## Example
-```html
- <pf-pageindicator totaldots="5"></pf-pageindicator>
+<!---
 ```
-
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="pf-pageindicator.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<pf-pageindicator></pf-pageindicator>
+```
 ## Learn more
 
 See the list of elements, demos, and documentation by browsing this collection on webcomponents.org:
