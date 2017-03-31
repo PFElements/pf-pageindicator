@@ -5,7 +5,7 @@ A Polymer 2.0 based collection of reusable web components
 
 ## Demo
 
-_[Demo and API docs](https://www.webcomponents.org/element/PFElements/pf-pageindicator)_
+_[Demo and API docs](https://www.webcomponents.org/element/PFElements/pf-pageindicator/demo/demo/index.html)
 
 # PF Page Indicator.
 
@@ -46,3 +46,7 @@ We encourage you to read the [contribution instructions by GitHub](https://guide
 ## License
 
 MIT License
+
+## Credits
+Insparation for this component came from multiple sources.  
+https://github.com/codrops/DotNavigationStyles is one of the insperation
