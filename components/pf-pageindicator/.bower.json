@@ -1,0 +1,50 @@
+{
+  "name": "pf-pageindicator",
+  "main": "pf-pageindicator.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0-rc.2",
+    "paper-listbox": "PolymerElements/paper-listbox#2.0-preview"
+  },
+  "authors": [
+    "Pixy Flux <info@pixyflux.com>"
+  ],
+  "homepage": "http://pixyflux.com",
+  "license": "MIT",
+  "ignore": [],
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#2.0-preview",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#2.0-preview",
+    "web-component-tester": "v6.0.0-prerelease.5",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0-rc.5"
+  },
+  "keywords": [
+    "Polymer",
+    "Polymer 2.0",
+    "page",
+    "indicator",
+    "iron pages",
+    "page selector",
+    "page indicator",
+    "dots"
+  ],
+  "bugs": {
+    "url": "https://github.com/PFElements/pf-pageindicator/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PFElements/pf-pageindicator"
+  },
+  "resolutions": {
+    "polymer": "^2.0.0-rc.2"
+  },
+  "_release": "b8326208bb",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "b8326208bb7b01c0fc20d0d59feb41185638e2bf"
+  },
+  "_source": "https://github.com/PFElements/pf-pageindicator.git",
+  "_target": "master",
+  "_originalSource": "PFElements/pf-pageindicator",
+  "_direct": true
+}
