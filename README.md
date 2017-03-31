@@ -5,7 +5,7 @@ A Polymer 2.0 based collection of reusable web components
 
 ## Demo
 
-_[Demo and API docs](https://www.webcomponents.org/element/PFElements/pf-pageindicator/demo/demo/index.html)
+[Demo and API docs ↗](https://www.webcomponents.org/element/PFElements/pf-pageindicator/demo/demo/index.html)
 
 # PF Page Indicator.
 
