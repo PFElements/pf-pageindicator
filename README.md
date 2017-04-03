@@ -29,8 +29,12 @@ PF Elements is a collection that contains all elements listed below.
 </custom-element-demo>
 ```
 -->
+
 ```html
-<pf-pageindicator></pf-pageindicator>
+<pf-pageindicator dotstyle="dotstyle-smalldotstroke" totaldots="5"></pf-pageindicator>
+```
+```html
+<pf-pageindicator dotstyle="dotstyle-number" totaldots="5"></pf-pageindicator>
 ```
 ## Learn more
 
