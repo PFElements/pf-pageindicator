@@ -1,0 +1,34 @@
+{
+  "name": "pf-pageindicator",
+  "version": "0.1.0",
+  "description": "Polymer 2.0 element based custom elements that can be used to indicate the current page in a stack of pages (iron-pages)",
+  "main": "pf-pageindicator.html",
+  "repository": "PFElements/pf-pageindicator",
+    "keywords": [
+    "Polymer",
+    "Polymer 2.0",
+    "page",
+    "indicator",
+    "iron pages",
+    "page selector",
+    "page indicator",
+    "dots"
+  ],
+    "authors": [
+    "Pixy Flux <info@pixyflux.com>"
+  ],
+  "homepage": "http://pixyflux.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PFElements/pf-pageindicator/issues"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#2.0-preview",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#2.0-preview",
+    "web-component-tester": "v6.0.0-prerelease.5",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0-rc.5"
+  },
+  "scripts": {
+    "test": "wct"
+  }
+}
