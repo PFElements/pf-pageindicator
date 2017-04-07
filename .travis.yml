@@ -11,6 +11,7 @@ addons:
 install:
   - npm install -g bower polymer-cli@next
   - npm install -g bower polylint web-component-tester
+  - npm install -g polylint
   - bower install
 before_script:
   - polylint
