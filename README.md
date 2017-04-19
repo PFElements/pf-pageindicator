@@ -16,10 +16,15 @@ A Polymer 2.0 based custom elements that can be used to indicate the current pag
 PF Elements is a collection that contains all elements listed below.
 
 
+| Element Name | Latest Version (Bower) | Npm version  | Build Status |
+|--------------|------------------------|--------------|--------------|
+| [pf-pageindicator](https://github.com/PFElements/pf-pageindicator) | [![GitHub version](https://badge.fury.io/gh/PFElements%2Fpf-pageindicator.svg)](https://badge.fury.io/gh/PFElements%2Fpf-pageindicator) | [![npm version](https://badge.fury.io/js/pf-pageindicator.svg)](https://www.npmjs.com/package/pf-pageindicator) |[![Build Status](https://travis-ci.org/PFElements/pf-pageindicator.svg?branch=master)](https://travis-ci.org/PFElements/pf-pageindicator) | 
 
-[pf-pageindicator](https://github.com/PFElements/pf-pageindicator) [![GitHub version](https://badge.fury.io/gh/PFElements%2Fpf-pageindicator.svg)](https://badge.fury.io/gh/PFElements%2Fpf-pageindicator)  [![Build Status](https://travis-ci.org/PFElements/pf-pageindicator.svg?branch=master)](https://travis-ci.org/PFElements/pf-pageindicator) 
 
 ## Example
+
+`<pf-pageindicator dotstyle="dotstyle-smalldotstroke" totaldots="5"></pf-pageindicator>` can be passed the number of pages (or dots) that you want to display, additionaly you can pass the style of the transition as well.
+
 <!---
 ```
 <custom-element-demo>
@@ -49,6 +54,13 @@ See the list of elements, demos, and documentation by browsing this collection o
 ## Contributing
 
 Comments, questions, suggestions, issues, and pull requests are all welcome.
+
+### Get in touch with the team
+
+Joing us at [![Join the chat at https://gitter.im/pf-elements/Lobby](https://badges.gitter.im/pf-elements/Lobby.svg)](https://gitter.im/pf-elements/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+- [Twitter](<a href="https://twitter.com/polymerjs" class="twitter-follow-button" data-show-count="false">Follow @polymerjs</a>)
+- [Facebook] (https://www.facebook.com/polymerjs)
 
 
 ### Some ways to help:
