@@ -23,7 +23,7 @@ PF Elements is a collection that contains all elements listed below.
 
 ## Example
 
-`<pf-pageindicator dotstyle="dotstyle-smalldotstroke" totaldots="5"></pf-pageindicator>` can be passed the number of pages (or dots) that you want to display, additionaly you can pass the style of the transition as well.
+`<pf-pageindicator></pf-pageindicator>` can be passed the number of pages (or dots) that you want to display, additionaly you can pass the style of the transition as well.
 
 <!---
 ```
