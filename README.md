@@ -7,6 +7,8 @@ A Polymer 2.0 based collection of reusable web components
 
 [Demo and API docs ↗](https://www.webcomponents.org/element/PFElements/pf-pageindicator/demo/demo/index.html)
 
+_[Demo and API docs](https://www.webcomponents.org/element/PFElements/pf-pageindicator/demo/demo/index.html)_
+
 # PF Page Indicator.
 
 A Polymer 2.0 based custom elements that can be used to indicate the current page in a stack of pages. 
