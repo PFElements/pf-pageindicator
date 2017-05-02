@@ -1,13 +1,14 @@
 # pf-elements
 A Polymer 2.0 based collection of reusable web components 
 
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/PFElements/pf-pageindicator)
+[![Polymer Version](https://img.shields.io/badge/polymer-v2-blue.svg)](https://www.polymer-project.org)
+[![Join the chat at https://gitter.im/pf-elements/Lobby](https://badges.gitter.im/pf-elements/Lobby.svg)](https://gitter.im/pf-elements/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Demo
 
 [Demo and API docs ↗](https://www.webcomponents.org/element/PFElements/pf-pageindicator/demo/demo/index.html)
 
-_[Demo and API docs](https://www.webcomponents.org/element/PFElements/pf-pageindicator/demo/demo/index.html)_
 
 # PF Page Indicator.
 
